@@ -1,22 +1,43 @@
-<section data-ng-controller="ScoresController" data-ng-init="find()">
+<section>
   <div class="page-header">
     <h1>Scores</h1>
   </div>
   <div class="list-group">
-    <a data-ng-repeat="score in scores" data-ui-sref="scores.view({scoreId: score._id})" class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span data-ng-bind="score.created | date:'mediumDate'"></span>
-        by
-        <span data-ng-bind="score.user.displayName"></span>
-      </small>
-      <h4 class="list-group-item-heading" data-ng-bind="score.title"></h4>
-      <p class="list-group-item-text">Game: <span data-ng-bind="score.game"></span></p>
-      <p class="list-group-item-text">Player: <span data-ng-bind="score.player"></span></p>
-      <p class="list-group-item-text">Score: <span data-ng-bind="score.score"></span></p>
-    </a>
+    <code>[TODO: filter by player/game]</code>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>
+            Record
+          </th>
+          <th>
+            Player
+          </th>
+          <th>
+            Game
+          </th>
+          <th>
+            Score
+          </th>
+          <th>
+            Date
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-ng-repeat="score in scores" data-ui-sref="scores.edit({scoreId: score._id})">
+          <td data-ng-bind="score.title"></td>
+          <td data-ng-bind="score.player"></td>
+          <td data-ng-bind="score.game"></td>
+          <td data-ng-bind="score.score"></td>
+          <td data-ng-bind="score.created | date:'mediumDate'"></td>
+
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div class="alert alert-warning text-center" data-ng-if="scores.$resolved && !scores.length">
     No scores yet, why don't you <a data-ui-sref="scores.create">create one</a>?
   </div>
+  <button type="button" class="btn btn-primary" data-ui-sref="scores.create()">Add New Score</button>
 </section>

@@ -40,7 +40,10 @@ exports.update = function (req, res) {
   var score = req.score;
 
   score.title = req.body.title;
-  score.content = req.body.content;
+  score.game = req.body.game;
+  score.player = req.body.player;
+  score.score = req.body.score;
+  score.notes = req.body.notes;
 
   score.save(function (err) {
     if (err) {

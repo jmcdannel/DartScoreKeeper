@@ -13,22 +13,18 @@ angular.module('scores').config(['$stateProvider',
       })
       .state('scores.list', {
         url: '',
-        templateUrl: 'modules/scores/client/views/list-scores.client.view.html'
+        template: '<ds-score-list/>'
       })
       .state('scores.create', {
         url: '/create',
-        templateUrl: 'modules/scores/client/views/create-score-entry.client.view.html',
+        template: '<ds-create-score-entry/>',
         data: {
           roles: ['user', 'admin']
         }
       })
-      .state('scores.view', {
-        url: '/:scoreId',
-        templateUrl: 'modules/scores/client/views/view-score-entry.client.view.html'
-      })
       .state('scores.edit', {
         url: '/:scoreId/edit',
-        templateUrl: 'modules/scores/client/views/edit-score-entry.client.view.html',
+        template: '<ds-edit-score-entry/>',
         data: {
           roles: ['user', 'admin']
         }
