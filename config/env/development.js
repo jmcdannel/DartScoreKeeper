@@ -25,8 +25,8 @@ module.exports = {
     title: defaultEnvConfig.app.title + ' - Development Environment'
   },
   facebook: {
-    clientID: process.env.FACEBOOK_ID || 'APP_ID',
-    clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+    clientID: process.env.FACEBOOK_ID || '171295946543792',
+    clientSecret: process.env.FACEBOOK_SECRET || '1b1a27d4b72aa31eb5a934d157b2da46',
     callbackURL: '/api/auth/facebook/callback'
   },
   twitter: {
@@ -35,8 +35,8 @@ module.exports = {
     callbackURL: '/api/auth/twitter/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_ID || 'APP_ID',
-    clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+    clientID: process.env.GOOGLE_ID || '164391688688-uvpvkma15bnq3hphe0jc0iaftrgub5qm.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'b24LwzFcrHDJ_HZu7oaXxwk3',
     callbackURL: '/api/auth/google/callback'
   },
   linkedin: {

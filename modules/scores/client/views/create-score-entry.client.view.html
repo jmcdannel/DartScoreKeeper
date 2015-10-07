@@ -1,0 +1,47 @@
+<section data-ng-controller="ScoresController">
+  <div class="page-header">
+    <h1>New Score</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="scoreForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+      <fieldset>
+        <div class="form-group">
+          <label class="control-label" for="title">Title</label>
+          <div class="controls">
+            <input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="What is the name of the record (e.g. Golf, 9-holes)?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="title">Game</label>
+          <div class="controls">
+            <input name="game" type="text" data-ng-model="game" id="game" class="form-control" placeholder="What game was played?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="title">Player</label>
+          <div class="controls">
+            <input name="player" type="text" data-ng-model="player" id="player" class="form-control" placeholder="Who's score is this?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="title">Score</label>
+          <div class="controls">
+            <input name="score" type="text" data-ng-model="score" id="score" class="form-control" placeholder="What was the score?">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="content">Notes</label>
+          <div class="controls">
+            <textarea name="notes" data-ng-model="notes" id="notes" class="form-control" cols="30" rows="10" placeholder="Score entry notes"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+        <div data-ng-show="error" class="text-danger">
+          <strong data-ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
