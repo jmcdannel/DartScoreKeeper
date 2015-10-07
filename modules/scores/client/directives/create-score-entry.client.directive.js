@@ -36,7 +36,7 @@ angular.module('scores').directive('dsCreateScoreEntry', ['$location', 'Authenti
 					};
 
 					score.$save(_saveSuccess, _saveError);
-				}
+				};
       }
     };
 

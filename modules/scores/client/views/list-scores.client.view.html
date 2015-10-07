@@ -3,7 +3,9 @@
     <h1>Scores</h1>
   </div>
   <div class="list-group">
-    <code>[TODO: filter by player/game]</code>
+    
+    <ds-list-scores-filter scores="scores" search="searchCriteria"></ds-list-scores-filter>
+
     <table class="table table-striped">
       <thead>
         <tr>
@@ -25,7 +27,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr data-ng-repeat="score in scores" data-ui-sref="scores.edit({scoreId: score._id})">
+        <tr data-ng-repeat="score in scores | filter: { player:searchCriteria.name, game: searchCriteria.game }" data-ui-sref="scores.edit({scoreId: score._id})">
           <td data-ng-bind="score.title"></td>
           <td data-ng-bind="score.player"></td>
           <td data-ng-bind="score.game"></td>
