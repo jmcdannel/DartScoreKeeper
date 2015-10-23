@@ -3,37 +3,35 @@
     <h1>Scores</h1>
   </div>
   <div class="list-group">
-    
-    <ds-list-scores-filter scores="scores" search="searchCriteria"></ds-list-scores-filter>
 
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>
-            Record
-          </th>
-          <th>
-            Player
-          </th>
-          <th>
-            Game
-          </th>
-          <th>
-            Score
-          </th>
-          <th>
-            Date
-          </th>
+          <th ng-click="sortBy('title')">Record</th>
+          <th ng-click="sortBy('title')">Player</th>
+          <th ng-click="sortBy('title')">Game</th>
+          <th ng-click="sortBy('score')">Score</th>
+          <th>Date</th>
         </tr>
+        <tr class="filters">
+          <th></th>
+          <th><input ng-model="filters.name" placeholder="Filter: enter name" id="name"></th>
+          <th><input ng-model="filters.game" placeholder="Filter: enter game" id="game"></th>
+          <th></th>
+          <th></th>
+        </td>
       </thead>
       <tbody>
-        <tr data-ng-repeat="score in scores | filter: { player:searchCriteria.name, game: searchCriteria.game }" data-ui-sref="scores.edit({scoreId: score._id})">
+        <tr data-ui-sref="scores.edit({scoreId: score._id})"
+            data-ng-repeat="
+              score in scores |
+              orderBy:filters.sortBy.field:filters.sortBy.descending |
+              filter: { player: filters.name, game: filters.game }">
           <td data-ng-bind="score.title"></td>
           <td data-ng-bind="score.player"></td>
           <td data-ng-bind="score.game"></td>
           <td data-ng-bind="score.score"></td>
           <td data-ng-bind="score.created | date:'mediumDate'"></td>
-
         </tr>
       </tbody>
     </table>

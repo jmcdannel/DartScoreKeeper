@@ -10,7 +10,13 @@ angular.module('scores').directive('dsScoreList', ['Scores', 'Authentication',
       link: function postLink(scope, element, attrs) {
 				scope.authentication = Authentication;
 				scope.scores = Scores.query();
-        scope.searchCriteria = { name: '', game: '' };
+        scope.filters = { name: '', game: '', sortBy: { field: '', descending: false } };
+        scope.sortBy = function(field) {
+          scope.filters.sortBy = {
+            field: field,
+            descending: !scope.filters.sortBy.descending
+          };
+        };
       }
     };
 	}
